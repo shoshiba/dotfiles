@@ -10,6 +10,24 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 alias ls='lsd -A --group-dirs=first'
 alias ll='lsd -lA --group-dirs=first'
 alias vi='nvim'
+alias oo='open ./'
+# カレントディレクトリ以下をプレビューし選択して開く
+alias lk='_look'
+_look() {
+	if [ "$1" = "-a" ]; then
+		local find_result=$(find . -type f -o -type l)
+	else
+		local find_result=$(find . -maxdepth 1 -type f -o -type l)
+	fi
+		local target_files=($(echo "$find_result" \
+		| sed 's/\.\///g' \
+		| grep -v -e '.jpg' -e '.gif' -e '.png' -e '.jpeg' \
+		| sort -r \
+		| fzf-tmux -p80% --select-1 --prompt 'vim ' --preview 'bat --color always {}' --preview-window=right:70%
+))
+[ "$target_files" = "" ] && return
+vim -p ${target_files[@]}
+}
 
 #nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
