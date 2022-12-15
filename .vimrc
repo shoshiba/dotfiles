@@ -43,7 +43,7 @@ highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray
 
 
 "オートインデント
-set autoindent
+set smartindent
 set tabstop=2
 set shiftwidth=2
 
