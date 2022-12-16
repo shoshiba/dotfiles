@@ -149,3 +149,4 @@ zinit light zsh-users/zsh-completions
 ##############
 
 fpath=(/usr/local/share/zsh-completions ${fpath})
+
