@@ -4,6 +4,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'unblevable/quick-scope'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'cocopon/iceberg.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 let g:airline_theme = 'dark'               " テーマの指定
@@ -88,3 +92,6 @@ inoremap <expr> ' MyInsertBracket(['''', '`'], '''')
 
 "IMEから抜けるあれ
 set imdisable
+
+" カラースキームをicebergに
+colorscheme iceberg
