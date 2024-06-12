@@ -1,6 +1,7 @@
-require("lazy_nvim")
+--
 require("options")
 require("keymaps")
+require("lazy_nvim")
 --require("plugins")
 require("colorscheme")
 
@@ -18,8 +19,6 @@ require("colorscheme")
 --Plug 'mattn/vim-lsp-settings'
 --Plug 'neoclide/coc.nvim', {'branch': 'release'}
 --Plug 'nvim-telescope/telescope.nvim'
---Plug 'oflisback/obsidian-bridge.nvim'
---Plug 'nvim-lua/plenary.nvim'
 --"ファイラー周り
 --Plug 'obaland/vfiler.vim'
 --Plug 'obaland/vfiler-column-devicons'
@@ -43,10 +42,9 @@ require("colorscheme")
 --}
 --
 -- Obsidian-bridge設定
-require('obsidian-bridge').setup({
-    obsidian_server_address = "http://localhost:27123",
-    scroll_sync = true
-})
+-- require('obsidian-bridge').setup({
+--     obsidian_server_address = "http://localhost:27123",
+-- })
 --
 ---- Airline設定
 vim.g.airline_theme = 'dark'
@@ -80,7 +78,7 @@ vim.cmd("set iskeyword+=-")
 vim.cmd("set rtp+=/opt/homebrew/opt/fzf")
 
 -- シンタックスハイライト有効化
-vim.cmd('syntax on')
-vim.cmd('highlight Normal ctermbg=black ctermfg=grey')
-vim.cmd('highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey')
-vim.cmd('highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray')
+-- vim.cmd('syntax on')
+-- vim.cmd('highlight Normal ctermbg=black ctermfg=grey')
+-- vim.cmd('highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey')
+-- vim.cmd('highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray')
