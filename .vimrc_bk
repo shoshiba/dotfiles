@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'unblevable/quick-scope'
@@ -8,11 +8,49 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'cocopon/iceberg.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'oflisback/obsidian-bridge.nvim'
+Plug 'nvim-lua/plenary.nvim'
+"ファイラー周り
+Plug 'obaland/vfiler.vim'
+Plug 'obaland/vfiler-column-devicons'
+
+"Markdownを豪華に
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {
+      'lua',
+      'ruby',
+      'toml',
+      'c_sharp',
+      'vue',
+    }
+  }
+}
+EOF
+
+
+lua << EOF
+require('obsidian-bridge').setup({
+    obsidian_server_address = "http://localhost:27123",
+    scroll_sync = true
+})
+EOF
+
 
 let g:airline_theme = 'dark'               " テーマの指定
 let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
 let g:airline_powerline_fonts = 1            " Powerline Fontsを利用
+"let g:obsidian_bridge_obsidian_dir = '/Users/shohei_s/Documents/Obsidian Vault'
+"let g:obsidian_bridge_port = 27123  " ポート番号
+let g:obsidian_bridge_scroll_sync = v:true
+"let g:obsidian_bridge_api_key = 'dd777ffdc247631e9aecd7702f92d58f87fa79878f24bf5c48af8ee2661bd6a4'
 
 "見た目系
 "タイトル表示
@@ -63,7 +101,8 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 
-
+"fzf用
+set rtp+=/opt/homebrew/opt/fzf
 
 
 "閉じ括弧入力時、対応する括弧強調
@@ -93,5 +132,6 @@ inoremap <expr> ' MyInsertBracket(['''', '`'], '''')
 "IMEから抜けるあれ
 set imdisable
 
-" カラースキームをicebergに
+"カラースキームをicebergに
 colorscheme iceberg
+

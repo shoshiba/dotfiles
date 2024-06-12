@@ -7,9 +7,9 @@ if wezterm.config_builder then
 end
 
 -- カラースキームの設定
-config.color_scheme = 'AdventureTime'
+config.color_scheme = 'MaterialOcean'
 -- 背景透過
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 
 
 -- mac用設定
@@ -36,14 +36,14 @@ if mac then
       action = act.SpawnTab 'CurrentPaneDomain',
     },
     -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
-    {
-      key = '|',
-      mods = 'LEADER',
-      action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-    },
+--    {
+--      key = '|',
+--      mods = 'LEADER',
+--      action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+--    },
   }
   
-  config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
+--  config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
 end
 return config
 
