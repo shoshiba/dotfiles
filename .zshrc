@@ -1,8 +1,6 @@
 #starship
 eval "$(starship init zsh)"
 
-#obsidianをmarkdownのプレビューに
-export OBSIDIAN_REST_API_KEY=dd777ffdc247631e9aecd7702f92d58f87fa79878f24bf5c48af8ee2661bd6a4
 
 #fzf+fd
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
