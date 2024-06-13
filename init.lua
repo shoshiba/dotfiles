@@ -2,8 +2,6 @@
 require("options")
 require("keymaps")
 require("colorscheme")
--- require("lazy_nvim")
--- require("plugins")
 
 
 -- lazy.nvim用

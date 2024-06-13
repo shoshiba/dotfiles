@@ -30,7 +30,11 @@ ignorecase = true,
 -- インクリメンタルサーチ有効化
 incsearch = true,
 -- 閉じカッコ入力時、対応するカッコ強調
-showmatch = true
+showmatch = true,
+
+-- 自動補完系
+completeopt = {"menu", "menuone", "noselect", "preview"}
+
 }
 
 
