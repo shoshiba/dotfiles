@@ -4,7 +4,6 @@ encoding = "utf-8",
 fileencoding = "utf-8",
 
 -- 見た目系
-
 title = true, -- タイトルを表示
 number = true, -- 行番号を表示
 ruler = true, -- ルーラーを表示
@@ -33,6 +32,7 @@ incsearch = true,
 -- 閉じカッコ入力時、対応するカッコ強調
 showmatch = true
 }
+
 
 for k, v in pairs(options) do
   vim.opt[k] = v

@@ -1,32 +1,50 @@
 --
 require("options")
 require("keymaps")
-require("lazy_nvim")
---require("plugins")
 require("colorscheme")
+-- require("lazy_nvim")
+-- require("plugins")
 
 
+-- lazy.nvim用
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- プラグイン管理
---vim.cmd [[
---call plug#begin('~/.vim/plugged')
---Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
---Plug 'junegunn/fzf.vim'
---Plug 'unblevable/quick-scope'
---Plug 'vim-airline/vim-airline'
---Plug 'vim-airline/vim-airline-themes'
---Plug 'prabirshrestha/vim-lsp'
---Plug 'mattn/vim-lsp-settings'
---Plug 'neoclide/coc.nvim', {'branch': 'release'}
---Plug 'nvim-telescope/telescope.nvim'
---"ファイラー周り
---Plug 'obaland/vfiler.vim'
---Plug 'obaland/vfiler-column-devicons'
---"Markdownを豪華に
---Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
---call plug#end()
---]]
---
+require("lazy").setup("plugins", {
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+      },
+    },
+  },
+})
+
+-- vfiler configuration (Explorer style)
+require'vfiler/config'.setup {
+  options = {
+    columns = 'indent,devicons,name',
+    auto_cd = true,
+    auto_resize = true,
+    keep = true,
+    layout = 'left',
+    width = 30,
+  },
+}
+
 ---- Treesitter設定
 --require'nvim-treesitter.configs'.setup {
 --  highlight = {
