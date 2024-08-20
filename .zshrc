@@ -1,6 +1,22 @@
 #starship
 eval "$(starship init zsh)"
 
+#Obsidianを自動で開くようにするスクリプト
+open_obsidian_and_edit() {
+  # Obsidianを開く
+  open -a "Obsidian"
+  
+  # 少し待つ（オプション）
+  sleep 2
+  
+  # 指定のディレクトリに移動
+  cd ~/Documents/Obsidian\ Vault
+  
+  # neovimを実行
+  nvim -c VFiler
+
+  #AppScriptを使ってWezTermをアクティブに戻す
+}
 
 #fzf+fd
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -11,6 +27,7 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 
 #alias
+alias obsi='open_obsidian_and_edit'
 alias ls='lsd -A --group-dirs=first'
 alias ll='lsd -lA --group-dirs=first'
 alias vi='nvim'
