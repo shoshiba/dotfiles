@@ -17,7 +17,7 @@ local mac = wezterm.target_triple:find("darwin")
 
 if mac then
   -- フォントの設定
-  config.font = wezterm.font("RictyDiminishedDiscord Nerd Font", {weight="Medium", stretch="Normal", style="Normal"})
+  config.font = wezterm.font("Hackgen Console NF", {weight="Medium", stretch="Normal", style="Normal"})
   -- フォントサイズの設定
   config.font_size = 16
   -- ショートカットキー設定
