@@ -11,13 +11,15 @@ config.color_scheme = 'MaterialOcean'
 -- 背景透過
 config.window_background_opacity = 0.90
 
+-- フォントの設定
+config.font = wezterm.font("Hackgen Console NF", {weight="Medium", stretch="Normal", style="Normal"})
 
 -- mac用設定
 local mac = wezterm.target_triple:find("darwin")
 
 if mac then
   -- フォントの設定
-  config.font = wezterm.font("RictyDiminishedDiscord Nerd Font", {weight="Medium", stretch="Normal", style="Normal"})
+  config.font = wezterm.font("Hackgen Console NF", {weight="Medium", stretch="Normal", style="Normal"})
   -- フォントサイズの設定
   config.font_size = 16
   -- ショートカットキー設定
@@ -46,4 +48,3 @@ if mac then
 --  config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
 end
 return config
-
